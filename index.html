@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple counter</title>
+</head>
+
+<body>
+    <h1 id="number">0</h1>
+    <button id="btn">Click me</button>
+    <button id="resetBtn">Reset</button>
+    <button id="decreaseBtn">Decrease</button>
+    <script>
+        const numberElement = document.getElementById('number');
+        const button = document.getElementById('btn');
+
+        let count = 0;
+
+        button.addEventListener('click', () => {
+            count++;
+            numberElement.textContent = count;
+            numberElement.style.color = 'green';
+        });
+        const resetButton = document.getElementById('resetBtn');
+
+        resetButton.addEventListener('click', () => {
+            count = 0;
+            numberElement.textContent = count;
+            numberElement.style.color = 'black';
+        });
+        const decreaseButton = document.getElementById('decreaseBtn');
+
+        decreaseButton.addEventListener('click', () => {
+            if (count > 0) {
+                count--;
+                numberElement.textContent = count;
+                if (count > 0) {
+                    numberElement.style.color = 'green';
+                } else {
+                    numberElement.style.color = 'black';
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>
